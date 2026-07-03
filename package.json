@@ -1,0 +1,24 @@
+{
+  "name": "multiagent",
+  "version": "0.1.0",
+  "description": "階層型マルチエージェント基盤 — オーケストレーター(対話層) + ワーカー(作業層)",
+  "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "tsx src/index.ts",
+    "start:login": "MULTIAGENT_AUTH=login tsx src/index.ts",
+    "task": "MULTIAGENT_AUTH=login tsx src/index.ts -p",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@anthropic-ai/claude-agent-sdk": "latest",
+    "zod": "^4.0.0"
+  },
+  "devDependencies": {
+    "tsx": "^4.19.0",
+    "typescript": "^5.7.0",
+    "@types/node": "^22.0.0"
+  }
+}
