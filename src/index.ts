@@ -216,8 +216,14 @@ async function runRepl(): Promise<void> {
     }
   });
 
-  const first = await ask();
+  // HERMES_KICKOFF があれば、最初のユーザー入力の代わりに自動投入する。
+  // `npm run hire`(AI社員の採用フロー)がこれを使い、起動と同時に面談を始める。
+  const kickoff = process.env.HERMES_KICKOFF?.trim();
+  const first = kickoff && kickoff.length > 0 ? kickoff : await ask();
   if (isExit(first)) return shutdown(orch, rl);
+  if (kickoff && kickoff.length > 0) {
+    console.log(cyan("\nあなた> ") + dim("(AI社員の採用を開始します。画面の質問にふだんの言葉で答えてください)"));
+  }
   orch.send(first);
   running = true;
 

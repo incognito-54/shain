@@ -4,3 +4,15 @@ dist/
 *.log
 workspace/
 .playwright-mcp/
+.DS_Store
+
+# --- AI社員の実体は個人情報(氏名・取引先・経理データ等)を含みうるため既定で非公開 ---
+# 公開するのは雛形(_template)と無害なサンプル(repo-reporter)だけ。
+# 新しく作った社員は自動で除外されるので、git add . で誤って公開する事故を防ぐ。
+employees/*/**
+!employees/_template/**
+!employees/repo-reporter/**
+
+# ブラウザ操作・スカウトの中間生成物(公開しない)
+detail-*.yml
+requests-*.yml

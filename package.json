@@ -10,6 +10,7 @@
     "start": "tsx src/index.ts",
     "start:login": "MULTIAGENT_AUTH=login tsx src/index.ts",
     "task": "MULTIAGENT_AUTH=login tsx src/index.ts -p",
+    "hire": "MULTIAGENT_AUTH=login HERMES_KICKOFF=\"AI社員を新しく雇いたいです。docs/prompts/hire-employee.md の採用フローに従って、専門用語を使わず、私に一つずつ質問するところから始めてください。\" tsx src/index.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
