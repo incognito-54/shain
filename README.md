@@ -1,4 +1,4 @@
-# Hermes — AIの「社員」を雇える基盤
+# Shain — AIの「社員」を雇える基盤
 
 > 「自分の代わりに定型業務をこなす“社員”がほしい」と思った東大生が作った、Claude Agent SDK 製のマルチエージェント基盤。
 > **`npm run hire` と打って面談に答えるだけで、コードを一切書かずに AI社員 を1人雇えます。**
@@ -80,7 +80,7 @@ cron/launchdに載せれば定期実行も可能です。
 
 ### 使いこなしガイド
 
-- [`docs/HERMES_PLAYBOOK.md`](docs/HERMES_PLAYBOOK.md) — バリューを産む使い方(ユースケース集・依頼文の書き方・運用ルーチン)
+- [`docs/SHAIN_PLAYBOOK.md`](docs/SHAIN_PLAYBOOK.md) — バリューを産む使い方(ユースケース集・依頼文の書き方・運用ルーチン)
 - [`docs/OSS_STRATEGY.md`](docs/OSS_STRATEGY.md) — 業務自動化ツールをOSSとして量産する戦略
 - [`docs/prompts/`](docs/prompts/) — 実戦用の依頼文テンプレート(うまくいった依頼文はここに追加してストックする)
 

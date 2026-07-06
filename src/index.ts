@@ -82,7 +82,7 @@ function printHelp(): void {
       "  Ctrl+C          実行中ターンの中断",
       "",
       "ワンショット実行: npm run task -- \"依頼文\"  (1タスク実行して終了)",
-      "活用ガイド: docs/HERMES_PLAYBOOK.md",
+      "活用ガイド: docs/SHAIN_PLAYBOOK.md",
     ].join("\n"),
   ));
 }
@@ -200,7 +200,7 @@ async function runRepl(): Promise<void> {
     }
   };
 
-  console.log(green("=== Hermes: マルチエージェント基盤 ==="));
+  console.log(green("=== Shain: マルチエージェント基盤 ==="));
   console.log(dim("オーケストレーターが対話を受け、ワーカー(researcher/coder/reviewer/writer)に作業を委譲します。"));
   printHelp();
 
@@ -216,9 +216,9 @@ async function runRepl(): Promise<void> {
     }
   });
 
-  // HERMES_KICKOFF があれば、最初のユーザー入力の代わりに自動投入する。
+  // SHAIN_KICKOFF があれば、最初のユーザー入力の代わりに自動投入する。
   // `npm run hire`(AI社員の採用フロー)がこれを使い、起動と同時に面談を始める。
-  const kickoff = process.env.HERMES_KICKOFF?.trim();
+  const kickoff = process.env.SHAIN_KICKOFF?.trim();
   const first = kickoff && kickoff.length > 0 ? kickoff : await ask();
   if (isExit(first)) return shutdown(orch, rl);
   if (kickoff && kickoff.length > 0) {

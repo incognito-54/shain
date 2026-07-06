@@ -1,5 +1,5 @@
 {
-  "name": "multiagent",
+  "name": "shain",
   "version": "0.1.0",
   "description": "階層型マルチエージェント基盤 — オーケストレーター(対話層) + ワーカー(作業層)",
   "type": "module",
@@ -10,7 +10,7 @@
     "start": "tsx src/index.ts",
     "start:login": "MULTIAGENT_AUTH=login tsx src/index.ts",
     "task": "MULTIAGENT_AUTH=login tsx src/index.ts -p",
-    "hire": "MULTIAGENT_AUTH=login HERMES_KICKOFF=\"AI社員を新しく雇いたいです。docs/prompts/hire-employee.md の採用フローに従って、専門用語を使わず、私に一つずつ質問するところから始めてください。\" tsx src/index.ts",
+    "hire": "MULTIAGENT_AUTH=login SHAIN_KICKOFF=\"AI社員を新しく雇いたいです。docs/prompts/hire-employee.md の採用フローに従って、専門用語を使わず、私に一つずつ質問するところから始めてください。\" tsx src/index.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
