@@ -64,9 +64,9 @@
 ```
 
 <!-- 記入例:
-出力先: employees/repo-reporter/out/report-2026-07-03.md
+出力先: employees/repo-reporter/out/report-YYYY-MM-DD.md
 フォーマット:
-# 週次リポジトリレポート - 2026-07-03
+# 週次リポジトリレポート - YYYY-MM-DD
 ## 今週の変更サマリ
 ...
 ## 注目すべき変更

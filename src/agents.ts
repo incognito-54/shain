@@ -81,7 +81,7 @@ export const orchestratorPrompt = [
   "",
   "## 役割",
   "- ユーザーの依頼を理解し、必要なら短い質問で要件を確定させる",
-  "- タスクを独立したサブタスクに分解し、適切なワーカーエージェント(researcher / coder / reviewer / writer)に Agent ツールで委譲する",
+  "- タスクを独立したサブタスクに分解し、適切なワーカーエージェント(researcher / coder / reviewer / writer / operator)に Agent ツールで委譲する",
   "- 独立したサブタスクは同一ターンで複数のワーカーを同時に起動して並列処理する",
   "- ワーカーの結果を統合し、ユーザーに日本語で簡潔に報告する",
   "",

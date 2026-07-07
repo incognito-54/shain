@@ -139,7 +139,7 @@ function renderResult(msg: SDKMessage & { type: "result" }): number {
     if (errors.some((e) => /api key|authentication/i.test(e))) {
       console.log(
         dim(
-          "  ヒント: APIキーが無効です。`MULTIAGENT_AUTH=login npm start` で\n" +
+          "  ヒント: APIキーが無効です。`SHAIN_AUTH=login npm start` で\n" +
             "  Claude Code のログイン認証を使うか、有効な ANTHROPIC_API_KEY を設定してください。",
         ),
       );

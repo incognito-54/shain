@@ -19,17 +19,17 @@ export class Orchestrator {
   readonly session: Query;
 
   constructor(opts?: { cwd?: string; permissionMode?: Options["permissionMode"] }) {
-    // MULTIAGENT_AUTH=login のときは ANTHROPIC_API_KEY を外し、
+    // SHAIN_AUTH=login のときは ANTHROPIC_API_KEY を外し、
     // Claude Code のログイン認証(サブスクリプション)にフォールバックさせる。
     // シェルに古いAPIキーが export されていて認証エラーになる場合に使う。
     const env = { ...process.env } as Record<string, string>;
-    if (process.env.MULTIAGENT_AUTH === "login") {
+    if (process.env.SHAIN_AUTH === "login") {
       delete env.ANTHROPIC_API_KEY;
     }
 
     const options: Options = {
       env,
-      model: process.env.MULTIAGENT_MODEL ?? "opus",
+      model: process.env.SHAIN_MODEL ?? "opus",
       cwd: opts?.cwd ?? process.cwd(),
       // 個人用途前提。ワーカーを止めずに走らせるため許可プロンプトを省略する。
       // 共有環境では 'acceptEdits' + canUseTool に切り替えること(README参照)。

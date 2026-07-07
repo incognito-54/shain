@@ -38,18 +38,27 @@ Claude Agent SDK 製の階層型マルチエージェントシステム。
 
 ## セットアップ
 
+### 必要なもの(前提)
+
+- **Node.js 18 以上**（`node -v` で確認）
+- **認証手段**（下のどちらか）
+  - **Claude Code（サブスクリプション）でログイン** — `start:login` / `hire` / `task` はこの認証を使います。この基盤は Claude Agent SDK 上で動き、認証は Claude Code のログインを利用するため、**あらかじめ [Claude Code](https://docs.claude.com/en/docs/claude-code) をインストールし、一度 `claude` を起動してログインを済ませておく**必要があります（`npm install` だけでは認証は完了しません）。
+  - **APIキー** — `ANTHROPIC_API_KEY` を設定して `npm start`。
+
 ```bash
-npm install
+npm install   # Node 18+ が必要
 ```
 
-認証は次のいずれか:
+認証と起動コマンドの対応:
 
-| 方法 | 起動コマンド |
-|---|---|
-| Claude Code のログイン(サブスクリプション) | `npm run start:login` |
-| APIキー(`ANTHROPIC_API_KEY` を設定) | `npm start` |
+| 方法 | 起動コマンド | 備考 |
+|---|---|---|
+| Claude Code のログイン(サブスクリプション) | `npm run start:login` / `npm run hire` / `npm run task` | 事前に `claude` でログイン済みであること |
+| APIキー(`ANTHROPIC_API_KEY` を設定) | `npm start` | 下記「APIキーで採用フローを使う」を参照 |
 
 > `npm start` で `Invalid API key` になる場合、シェルに古い `ANTHROPIC_API_KEY` が export されています。`npm run start:login` を使うか、キーを更新してください。
+
+> **APIキーで採用フロー（AI社員を雇う）を使うには**: `npm run hire` はログイン認証固定です。APIキーで採用したい場合は `ANTHROPIC_API_KEY` を設定して `npm start` を起動し、対話画面で「**AI社員を雇いたい**」と入力してください（採用フローは自然文でも起動します）。
 
 ## 使い方
 
@@ -88,8 +97,8 @@ cron/launchdに載せれば定期実行も可能です。
 
 | 変数 | 既定値 | 説明 |
 |---|---|---|
-| `MULTIAGENT_MODEL` | `opus` | オーケストレーターのモデル。コスト重視なら `sonnet` |
-| `MULTIAGENT_AUTH` | (なし) | `login` で `ANTHROPIC_API_KEY` を無視して Claude Code ログイン認証を使う |
+| `SHAIN_MODEL` | `opus` | オーケストレーターのモデル。コスト重視なら `sonnet` |
+| `SHAIN_AUTH` | (なし) | `login` で `ANTHROPIC_API_KEY` を無視して Claude Code ログイン認証を使う |
 
 ワーカーの構成(役割・ツール・モデル)は `src/agents.ts` で定義。エージェントの追加・変更はこのファイルを編集するだけです。
 
