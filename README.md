@@ -115,6 +115,17 @@ cron/launchdに載せれば定期実行も可能です。
 - 購入・送信・削除など不可逆な操作は、明示的に許可しない限り operator は直前で停止する設計です
 - ネイティブアプリのGUI操作は未対応(必要なら AppleScript / computer-use で拡張可能)
 
+### Otsukai — AIにブラウザのお使いを頼む
+
+この安全なブラウザ代行を、**単機能CLI**として切り出したのが Otsukai です。
+
+```bash
+npm run otsukai -- "食べログで新宿の寿司を評価順に3件、予算と定休日つきで調べて"
+```
+
+「見る・調べる」は自由に、**予約確定・購入・送信・削除など取り消せない操作は直前で必ず止めて**
+確認を求めます。→ 詳細と使い方は [`docs/OTSUKAI.md`](docs/OTSUKAI.md)
+
 ## 注意
 
 - `permissionMode: "bypassPermissions"` で動くため、ワーカーは**確認なしにファイル編集・コマンド実行**を行います。個人環境での利用を前提とし、信頼できないタスクを投げないでください。共有環境では `src/orchestrator.ts` で `permissionMode` を `acceptEdits` に変更し、`canUseTool` コールバックで許可制御を実装してください

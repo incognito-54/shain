@@ -12,6 +12,7 @@
     "start:login": "SHAIN_AUTH=login tsx src/index.ts",
     "task": "SHAIN_AUTH=login tsx src/index.ts -p",
     "hire": "SHAIN_AUTH=login SHAIN_KICKOFF=\"AI社員を新しく雇いたいです。docs/prompts/hire-employee.md の採用フローに従って、専門用語を使わず、私に一つずつ質問するところから始めてください。\" tsx src/index.ts",
+    "otsukai": "SHAIN_AUTH=login tsx src/otsukai.ts",
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
